@@ -1,6 +1,15 @@
 import { Link, router } from "expo-router";
 import React, { useState } from "react";
-import {Image, StyleSheet, Text, TouchableOpacity, SafeAreaView, ScrollView, View, TextInput } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  SafeAreaView,
+  ScrollView,
+  View,
+  TextInput,
+} from "react-native";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -80,7 +89,8 @@ const Signup = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContent}>
+        contentContainerStyle={styles.scrollContent}
+      >
         <>
           <View
             style={{
@@ -89,81 +99,78 @@ const Signup = () => {
               justifyContent: "space-around",
             }}
           >
-            <Image style={styles.logo}
+            <Image
+              style={styles.logo}
               source={require("../../assets/images/Logo.png")}
             />
           </View>
-        <View style={styles.formContainer}>
-        <Text style={styles.textMain}>
-              SignUp
-            </Text>
-          <View style={styles.inputContainer}>
-            <TextInput
-              placeholder="Name"
-              style={styles.input}
-              value={name}
-              onChangeText={(text) => setName(text)}
-            />
-            {errors.name ? (
-              <Text style={styles.errorText}>{errors.name}</Text>
-            ) : null}
-          </View>
+          <View style={styles.formContainer}>
+            <Text style={styles.textMain}>SignUp</Text>
+            <View style={styles.inputContainer}>
+              <TextInput
+                placeholder="Name"
+                style={styles.input}
+                value={name}
+                onChangeText={(text) => setName(text)}
+              />
+              {errors.name ? (
+                <Text style={styles.errorText}>{errors.name}</Text>
+              ) : null}
+            </View>
 
-          <View style={styles.inputContainer}>
-            <TextInput
-              placeholder="Email"
-              style={styles.input}
-              value={email}
-              onChangeText={(text) => setEmail(text)}
-            />
-            {errors.email ? (
-              <Text style={styles.errorText}>{errors.email}</Text>
-            ) : null}
-          </View>
+            <View style={styles.inputContainer}>
+              <TextInput
+                placeholder="Email"
+                style={styles.input}
+                value={email}
+                onChangeText={(text) => setEmail(text)}
+              />
+              {errors.email ? (
+                <Text style={styles.errorText}>{errors.email}</Text>
+              ) : null}
+            </View>
 
-          <View style={styles.inputContainer}>
-            <TextInput
-              placeholder="Password"
-              style={styles.input}
-              value={password}
-              onChangeText={(text) => setPassword(text)}
-              secureTextEntry
-            />
-            {errors.password ? (
-              <Text style={styles.errorText}>{errors.password}</Text>
-            ) : null}
-          </View>
+            <View style={styles.inputContainer}>
+              <TextInput
+                placeholder="Password"
+                style={styles.input}
+                value={password}
+                onChangeText={(text) => setPassword(text)}
+                secureTextEntry
+              />
+              {errors.password ? (
+                <Text style={styles.errorText}>{errors.password}</Text>
+              ) : null}
+            </View>
 
-          <View style={styles.inputContainer}>
-            <TextInput
-              placeholder="Confirm Password"
-              style={styles.input}
-              value={confirmPassword}
-              onChangeText={(text) => setConfirmPassword(text)}
-              secureTextEntry
-            />
-            {errors.confirmPassword ? (
-              <Text style={styles.errorText}>{errors.confirmPassword}</Text>
-            ) : null}
-          </View>
+            <View style={styles.inputContainer}>
+              <TextInput
+                placeholder="Confirm Password"
+                style={styles.input}
+                value={confirmPassword}
+                onChangeText={(text) => setConfirmPassword(text)}
+                secureTextEntry
+              />
+              {errors.confirmPassword ? (
+                <Text style={styles.errorText}>{errors.confirmPassword}</Text>
+              ) : null}
+            </View>
 
-          <View style={{marginHorizontal: 50}}>
-            <TouchableOpacity style={styles.button} onPress={handleSignup}>
-              <Text style={styles.buttonText}>SignUp</Text>
-            </TouchableOpacity>
-          </View>          
+            <View style={{ marginHorizontal: 50 }}>
+              <TouchableOpacity style={styles.button} onPress={handleSignup}>
+                <Text style={styles.buttonText}>SignUp</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-          <View style={{alignItems: 'center', marginTop: 5}}>
+          <View style={{ alignItems: "center", marginTop: 5 }}>
             <Text style={styles.textBottom}>
               Already Have an Account?{" "}
               <Link href={"/signin"}>
-                <Text style={styles.textBottomClick}>
-                  SignIn
-                </Text>
+                <Text style={styles.textBottomClick}>SignIn</Text>
               </Link>
             </Text>
           </View>
-          </>        
+        </>
       </ScrollView>
     </SafeAreaView>
   );
@@ -185,7 +192,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     borderRadius: 10,
     padding: 20,
-    width: "100%",
+    width: 320,
     maxWidth: 400,
     elevation: 5, // Android shadow
     shadowColor: "#000", // iOS shadow
@@ -194,9 +201,10 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
   },
   inputContainer: {
-    width: "100%", 
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
+    paddingHorizontal: 5,
   },
   input: {
     height: 45,
@@ -224,22 +232,22 @@ const styles = StyleSheet.create({
   logo: {
     height: 100,
     width: 200,
-    margin:20,
+    margin: 20,
     borderRadius: 20,
   },
-  textMain:{
+  textMain: {
     fontSize: 30,
     marginBottom: 5,
     fontWeight: "bold",
   },
-  textSec:{
+  textSec: {
     fontSize: 20,
   },
-  textBottom:{
+  textBottom: {
     fontSize: 14,
     margin: 5,
   },
-  textBottomClick:{
+  textBottomClick: {
     fontSize: 14,
     color: "#000000",
     fontWeight: "bold",

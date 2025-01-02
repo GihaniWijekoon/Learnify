@@ -95,6 +95,7 @@ const HomePage: React.FC = () => {
         />
       </View>
       {/* All Subjects Section */}
+      <View>
       <Text style={styles.title}>All Subjects</Text>
       <ScrollView horizontal contentContainerStyle={styles.horizontalScroll}>
         {categories.map((category) => (
@@ -110,23 +111,28 @@ const HomePage: React.FC = () => {
           </View>
         ))}
       </ScrollView>
+      </View>
 
       {/* My Subjects Section */}
-      <Text style={styles.title}>My Subjects ({mySubjects.length})</Text>
-      <FlatList
-        data={mySubjects}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.mySubjectCard}
-            onPress={() => handleCardPress(item)}
-          >
-            <Image source={{ uri: item.imageUrl }} style={styles.cardImage} />
-            <Text style={styles.mySubjectTitle}>{item.name}</Text>
-          </TouchableOpacity>
-        )}
-        contentContainerStyle={styles.cardList}
-      />
+      <View style={{ flex: 1, marginTop: 16 }}>
+        <Text style={styles.title}>My Subjects ({mySubjects.length})</Text>
+        <FlatList
+          data={mySubjects}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={styles.mySubjectCard}
+              onPress={() => handleCardPress(item)}
+            >
+              <Image source={{ uri: item.imageUrl }} style={styles.cardImage} />
+              <Text style={styles.mySubjectTitle}>{item.name}</Text>
+            </TouchableOpacity>
+          )}
+          contentContainerStyle={styles.cardList}
+          showsVerticalScrollIndicator={false} // Optional: Hides the scroll indicator
+        />
+      </View>
+
       <View style={styles.bottomContainer}></View>
     </View>
   );
@@ -176,12 +182,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "bold",
-    marginBottom: 8,
+    marginBottom: 16,
     color: '#343a40',
   },
   horizontalScroll: {
     flexDirection: "row",
-    marginBottom: 16,
   },
   subjectCard: {
     width: 180,
@@ -203,7 +208,6 @@ const styles = StyleSheet.create({
     height: "100%",
     borderRadius: 8,
     position: "absolute",
-    zIndex: -1,
   },
   addIconContainer: {
     position: "absolute",

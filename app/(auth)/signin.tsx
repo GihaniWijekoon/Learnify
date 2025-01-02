@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     borderRadius: 10,
     padding: 20,
-    width: "100%",
+    width: 320,
     maxWidth: 400,
     elevation: 5, // Android shadow
     shadowColor: "#000", // iOS shadow
